@@ -4,121 +4,10 @@ import { Appbar,Card, Button,Title,Paragraph  } from 'react-native-paper';
 
 function Products() {
     return (
-         <ScrollView  style = {styles.background}>
-           <Text style={styles.st}>Deals</Text>  
+     <ScrollView>
            <ScrollView horizontal={true}  style = {{margin: 10}}>
-           <View style = {styles.productBox}>
-          
-             <Card style = {styles.card}>
-                 <Card.Cover style= {styles.cardCover} source={require('../assets/curtainopeners.jpg') }  />
-                 <Card.Content>
-                 <Text style = {styles.contentText}>Camera</Text>
-                 <Text>3.5$</Text>
-                 </Card.Content>
-                 <Card.Actions>
-                 <Button mode="contained"  style = {styles.btn}>Buy</Button>  
-                 </Card.Actions>
-             </Card>
-                  
-             <Card style = {styles.card}>
-                 <Card.Cover style= {styles.cardCover} source={require('../assets/homeauto.png') }  />
-                 <Card.Content>
-                 <Text style = {styles.contentText}>Socket</Text>
-                 <Text>3.5$</Text>
-                 </Card.Content>
-                 <Card.Actions>
-                 <Button mode="contained"  style = {styles.btn}>Buy</Button>  
-                 </Card.Actions>
-             </Card>
-                    
-             <Card style = {styles.card}>
-                 <Card.Cover style= {styles.cardCover} source={require('../assets/switch.png') }  />
-                 <Card.Content>
-                 <Text style = {styles.contentText}>KeyFinder</Text>
-                 <Text>3.5$</Text>
-                 </Card.Content>
-                 <Card.Actions>
-                 <Button mode="contained"  style = {styles.btn}>Buy</Button>  
-                 </Card.Actions>
-             </Card>
-            
-             <Card style = {styles.card}>
-                 <Card.Cover style= {styles.cardCover} source={require('../assets/curtainopeners.jpg') }  />
-                 <Card.Content>
-                 <Text style = {styles.contentText}>Camera</Text>
-                 <Text>3.5$</Text>
-                 </Card.Content>
-                 <Card.Actions>
-                 <Button mode="contained"  style = {styles.btn}>Buy</Button>  
-                 </Card.Actions>
-             </Card>
-                  
-             <Card style = {styles.card}>
-                 <Card.Cover style= {styles.cardCover} source={require('../assets/homeauto.png') }  />
-                 <Card.Content>
-                 <Text style = {styles.contentText}>Socket</Text>
-                 <Text>3.5$</Text>
-                 </Card.Content>
-                 <Card.Actions>
-                 <Button mode="contained"  style = {styles.btn}>Buy</Button>  
-                 </Card.Actions>
-             </Card>
-                    
-             <Card style = {styles.card}>
-                 <Card.Cover style= {styles.cardCover} source={require('../assets/switch.png') }  />
-                 <Card.Content>
-                 <Text style = {styles.contentText}>KeyFinder</Text>
-                 <Text>3.5$</Text>
-                 </Card.Content>
-                 <Card.Actions>
-                 <Button mode="contained"  style = {styles.btn}>Buy</Button>  
-                 </Card.Actions>
-             </Card>
-        
-           </View>
+             
            </ScrollView>
-          
-      
-           <Text style = {styles.boxText}>   See More</Text>
-           <Text style={styles.st}>Recomendation</Text>  
-           <View style = {styles.productBox}>
-             {/* card Starts */}
-             <Card style = {styles.card}>
-                 <Card.Cover style= {styles.cardCover} source={require('../assets/camera.png') }  />
-                 <Card.Content>
-                 <Text style = {styles.contentText}>Camera</Text>
-                 <Text>3.5$</Text>
-                 </Card.Content>
-                 <Card.Actions>
-                 <Button mode="contained"  style = {styles.btn}>Buy</Button>  
-                 </Card.Actions>
-             </Card>
-                      {/* card Starts */}
-             <Card style = {styles.card}>
-                 <Card.Cover style= {styles.cardCover} source={require('../assets/socket.png') }  />
-                 <Card.Content>
-                 <Text style = {styles.contentText}>Socket</Text>
-                 <Text>3.5$</Text>
-                 </Card.Content>
-                 <Card.Actions>
-                 <Button mode="contained"  style = {styles.btn}>Buy</Button>  
-                 </Card.Actions>
-             </Card>
-                      {/* card Starts */}
-             <Card style = {styles.card}>
-                 <Card.Cover style= {styles.cardCover} source={require('../assets/keyfinder.png') }  />
-                 <Card.Content>
-                 <Text style = {styles.contentText}>KeyFinder</Text>
-                 <Text>3.5$</Text>
-                 </Card.Content>
-                 <Card.Actions>
-                 <Button mode="contained"  style = {styles.btn}>Buy</Button>  
-                 </Card.Actions>
-             </Card>
-        
-           </View>
-          
-           <Text style = {styles.boxText}>   See More</Text>
            <Text style={styles.st}>Electric</Text>  
            <View style = {styles.productBox}>
              {/* card Starts */}
@@ -156,8 +45,6 @@ function Products() {
              </Card>
         
            </View>
-          
-           <Text style = {styles.boxText}>   See More</Text>
            <Text style={styles.st}>Lighting</Text>  
            <View style = {styles.productBox}>
              {/* card Starts */}
@@ -195,8 +82,7 @@ function Products() {
              </Card>
         
            </View>
-          
-           <Text style = {styles.boxText}>   See More</Text>
+
            <Text style={styles.st}>Security</Text> 
            <View style = {styles.productBox}>
              {/* card Starts */}
@@ -234,90 +120,7 @@ function Products() {
              </Card>
         
            </View>
-          
-           <Text style = {styles.boxText}>   See More</Text>
-           <Text style={styles.st}>Motor Controls</Text>  
-           <View style = {styles.productBox}>
-             {/* card Starts */}
-             <Card style = {styles.card}>
-                 <Card.Cover style= {styles.cardCover} source={require('../assets/camera.png') }  />
-                 <Card.Content>
-                 <Text style = {styles.contentText}>Camera</Text>
-                 <Text>3.5$</Text>
-                 </Card.Content>
-                 <Card.Actions>
-                 <Button mode="contained"  style = {styles.btn}>Buy</Button>  
-                 </Card.Actions>
-             </Card>
-                      {/* card Starts */}
-             <Card style = {styles.card}>
-                 <Card.Cover style= {styles.cardCover} source={require('../assets/socket.png') }  />
-                 <Card.Content>
-                 <Text style = {styles.contentText}>Socket</Text>
-                 <Text>3.5$</Text>
-                 </Card.Content>
-                 <Card.Actions>
-                 <Button mode="contained"  style = {styles.btn}>Buy</Button>  
-                 </Card.Actions>
-             </Card>
-                      {/* card Starts */}
-             <Card style = {styles.card}>
-                 <Card.Cover style= {styles.cardCover} source={require('../assets/keyfinder.png') }  />
-                 <Card.Content>
-                 <Text style = {styles.contentText}>KeyFinder</Text>
-                 <Text>3.5$</Text>
-                 </Card.Content>
-                 <Card.Actions>
-                 <Button mode="contained"  style = {styles.btn}>Buy</Button>  
-                 </Card.Actions>
-             </Card>
-        
-           </View>
-          
-           <Text style = {styles.boxText}>   See More</Text>
-           <Text style={styles.st}>Curtin Opener</Text>  
-           <View style = {styles.productBox}>
-             {/* card Starts */}
-             <Card style = {styles.card}>
-                 <Card.Cover style= {styles.cardCover} source={require('../assets/camera.png') }  />
-                 <Card.Content>
-                 <Text style = {styles.contentText}>Camera</Text>
-                 <Text>3.5$</Text>
-                 </Card.Content>
-                 <Card.Actions>
-                 <Button mode="contained"  style = {styles.btn}>Buy</Button>  
-                 </Card.Actions>
-             </Card>
-                      {/* card Starts */}
-             <Card style = {styles.card}>
-                 <Card.Cover style= {styles.cardCover} source={require('../assets/socket.png') }  />
-                 <Card.Content>
-                 <Text style = {styles.contentText}>Socket</Text>
-                 <Text>3.5$</Text>
-                 </Card.Content>
-                 <Card.Actions>
-                 <Button mode="contained"  style = {styles.btn}>Buy</Button>  
-                 </Card.Actions>
-             </Card>
-                      {/* card Starts */}
-             <Card style = {styles.card}>
-                 <Card.Cover style= {styles.cardCover} source={require('../assets/keyfinder.png') }  />
-                 <Card.Content>
-                 <Text style = {styles.contentText}>KeyFinder</Text>
-                 <Text>3.5$</Text>
-                 </Card.Content>
-                 <Card.Actions>
-                 <Button mode="contained"  style = {styles.btn}>Buy</Button>  
-                 </Card.Actions>
-             </Card>
-        
-           </View>
-          
-           <Text style = {styles.boxText}>   See More</Text>
-
-          
-             
-         </ScrollView>
+     </ScrollView>
     );
 }
 

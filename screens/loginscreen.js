@@ -1,11 +1,15 @@
-    import React from 'react';
-    import { StyleSheet, Text, View, TouchableOpacity, TextInput, Button  } from 'react-native';
+    import React, {useState} from 'react';
+    import { StyleSheet, Text, View, TouchableOpacity, TextInput, Button,KeyboardAvoidingView  } from 'react-native';
     import { NavigationContainer } from '@react-navigation/native';
     import { createStackNavigator } from '@react-navigation/stack';
 
     export default function LoginForm({navigation}) {
+        let [userEmail , setUserEmail] = ("");
+        let [password , setpassword] = ("");
     return (
-        <View style={styles.container}>
+        <KeyboardAvoidingView   behavior={Platform.OS == "ios" ? "padding" : "height"}
+        style={styles.container}>
+        {/* <View style={styles.container}> */}
         <Text style = {styles.heading}>LOGIN</Text>
         <View style = {styles.innercontainer}>
         <TextInput style = {styles.txtBox}  value = "Email"/>
@@ -19,7 +23,9 @@
             <Text style = {styles.tot}> Register Here</Text>
             </TouchableOpacity>
         </Text>
-        </View>
+        {/* </View> */}
+        </KeyboardAvoidingView>
+
     );
     }
 
@@ -59,7 +65,7 @@
         borderColor: '#242945',
         borderWidth: 2 ,
         borderRadius: 3,
-        margin: '5%',
+        margin: '4%',
         backgroundColor: '#242945',
         color: 'white',
         textAlign: 'center'
