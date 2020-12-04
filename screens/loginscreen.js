@@ -1,28 +1,30 @@
-    import React, {useState} from 'react';
-    import { StyleSheet, Text, View, TouchableOpacity, TextInput, Button,KeyboardAvoidingView  } from 'react-native';
-    import { NavigationContainer } from '@react-navigation/native';
-    import { createStackNavigator } from '@react-navigation/stack';
+import React, {useState} from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput, Button,KeyboardAvoidingView,Platform  } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import RegistrationForm  from "./SignUp";
 
-    export default function LoginForm({navigation}) {
-        let [userEmail , setUserEmail] = ("");
-        let [password , setpassword] = ("");
+export default function LoginForm({navigation}) {
+    let [userEmail , setUserEmail] = useState("Email");
+    let [password , setpassword] = useState("Password");
     return (
         <KeyboardAvoidingView   behavior={Platform.OS == "ios" ? "padding" : "height"}
         style={styles.container}>
         {/* <View style={styles.container}> */}
         <Text style = {styles.heading}>LOGIN</Text>
         <View style = {styles.innercontainer}>
-        <TextInput style = {styles.txtBox}  value = "Email"/>
-        <TextInput style = {styles.txtBox}  value = "Password" />
+        <TextInput style = {styles.txtBox}  placeholder = "Email"  placeholderTextColor="white" onChange = {setUserEmail}/>
+        <TextInput style = {styles.txtBox}  placeholder = "Password"  placeholderTextColor="white"  secureTextEntry = {true}  onChange = {setpassword}/>
         <TouchableOpacity style={styles.appButtonContainer}>
             <Text style={styles.appButtonText}>Login</Text>
         </TouchableOpacity>
         </View>
         <Text style = {styles.signupDire} >Not a member ?
-            <TouchableOpacity onPress = {() => navigation.navigate('SignUp')}>
+           
+        </Text>
+        <TouchableOpacity onPress = {() => navigation.navigate('SignUp')}>
             <Text style = {styles.tot}> Register Here</Text>
             </TouchableOpacity>
-        </Text>
         {/* </View> */}
         </KeyboardAvoidingView>
 
@@ -58,7 +60,8 @@
         marginTop: 10
     },
     tot:{
-        color: 'orange'
+        color: 'orange',
+       
     },
     txtBox:{
         height: 40,

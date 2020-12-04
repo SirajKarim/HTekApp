@@ -1,8 +1,15 @@
 import React,{Component} from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image,Platform } from 'react-native';
 import BottomTabNavigator from "./navigation/bottomtabnavigator";
 import { NavigationContainer } from "@react-navigation/native";
 import LoginForm from "./screens/loginscreen"
+// new working
+import RegistrationForm from "./screens/SignUp"
+import { createStackNavigator } from "@react-navigation/stack";
+//end
+
+
+const Stack = createStackNavigator(); 
 
 class App extends Component {
   constructor(){
@@ -34,14 +41,15 @@ class App extends Component {
          </View>  
       </View> )  
     return (
-      // <View style = { styles.MainContainer }>  
-      // <Text style={{textAlign: 'center'}}> Splash Screen Example</Text>  
-      //  {  
-      //   (this.state.isVisible === true) ? Splash_Screen : null  
-      // }  
-      // </View>   
       <NavigationContainer>
-        <LoginForm />
+        {/* new working */}
+        {/* <LoginForm /> */}
+        <Stack.Navigator screenOptions={{headerShown: false
+  }}>
+        <Stack.Screen name="Login" component={LoginForm} />
+        <Stack.Screen name="SignUp" component={RegistrationForm} />
+        </Stack.Navigator>
+        {/* end */}
         {  
         (this.state.isVisible === true) ? Splash_Screen : null  
         }  
