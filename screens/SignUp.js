@@ -1,18 +1,74 @@
-import React,{useState} from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, TextInput, Button  } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput, Button, Alert  } from 'react-native';
+import {firebase} from '../src/firebase/config';
 
 export default function RegistrationForm({navigation}) {
-    let [userEmail , setUserEmail] = useState("Email");
-    let [password , setpassword] = useState("password");
-    let [repeatPassword , setRepeatPassword] = useState("repeatPassword");
+    // const [fullName, setFullName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
+
+   
+    
+    const onRegisterPress = () => {
+        if(password !== confirmPassword){
+            alert("Password don't match. ")
+            return
+        }
+        firebase
+            .auth()
+            .createUserWithEmailAndPassword(email,password)
+            .then((response) => {
+                const uid = response.user.uid
+                const data = {
+                    id: uid,
+                    email,
+                    // fullName,
+                };
+                const usersRef = firebase.firestore().collection('users')
+
+                usersRef
+                    .doc(uid)
+                    .set(data)
+                    .then(() => {
+                        navigation.navigate("Login", {user: data})
+                    })
+                    .catch((error) => {
+                        alert(error)
+                    });
+            })
+            .catch((error) =>{
+                alert(error)
+            });
+    }
 return (
     <View style={styles.container}>
     <Text style = {styles.heading}>SIGNUP</Text>
     <View style = {styles.innercontainer}>
-    <TextInput style = {styles.txtBox} placeholder = "Email" placeholderTextColor="white"  onChange = {setUserEmail}/>
-    <TextInput style = {styles.txtBox}  placeholder = "Password" placeholderTextColor="white"   secureTextEntry = {true}  onChange = {setpassword}/>
-    <TextInput style = {styles.txtBox}  placeholder = "Repeat Password" placeholderTextColor="white"  secureTextEntry = {true}   onChange = {setRepeatPassword}/>
-    <TouchableOpacity style={styles.appButtonContainer}>
+    <TextInput 
+      style = {styles.txtBox}
+      placeholder = "Email"
+      placeholderTextColor="white"
+      onChangeText={(text) => setEmail(text)}
+      value={email}
+      />
+    <TextInput 
+    style = {styles.txtBox}  
+    placeholder = "Password" 
+    placeholderTextColor="white"   
+    secureTextEntry = {true}  
+    onChangeText={(text) => setPassword(text)}
+    value={password}
+    />
+    <TextInput 
+    style = {styles.txtBox} 
+    placeholder = "Repeat Password" 
+    placeholderTextColor="white"  
+    secureTextEntry = {true}   
+    onChangeText={(text) => setConfirmPassword(text)}
+    value={confirmPassword}
+    />
+    <TouchableOpacity style={styles.appButtonContainer}  onPress={() => onRegisterPress()}>
         <Text style={styles.appButtonText}>SignUp</Text>
     </TouchableOpacity>
     </View>
