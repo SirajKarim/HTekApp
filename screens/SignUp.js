@@ -18,28 +18,31 @@ export default function RegistrationForm({navigation}) {
         firebase
             .auth()
             .createUserWithEmailAndPassword(email,password)
-            .then((response) => {
-                const uid = response.user.uid
-                const data = {
-                    id: uid,
-                    email,
-                    // fullName,
-                };
-                const usersRef = firebase.firestore().collection('users')
+            .then(() => navigation.navigate('Home'))
+            .catch(error => console.log(error))
+            // .then((response) => {
+            //     const uid = response.user.uid
+            //     const data = {
+            //         id: uid,
+            //         email,
+            //         // fullName,
+            //     };
+            //     const usersRef = firebase.firestore().collection('users')
 
-                usersRef
-                    .doc(uid)
-                    .set(data)
-                    .then(() => {
-                        navigation.navigate("Login", {user: data})
-                    })
-                    .catch((error) => {
-                        alert(error)
-                    });
-            })
-            .catch((error) =>{
-                alert(error)
-            });
+            //     usersRef
+            //         .doc(uid)
+            //         .set(data)
+            //         .then(() => {
+                        
+            //             // navigation.navigate("Login", {user: data})
+            //         })
+            //         .catch((error) => {
+            //             alert(error)
+            //         });
+            // })
+            // .catch((error) =>{
+            //     alert(error)
+            // });
     }
 return (
     <View style={styles.container}>

@@ -34,6 +34,7 @@ const HomeStackNavigator = () => {
         {/* <Stack.Screen name = "ControlScreen" component = {ControlScreen} /> */}
       </Stack.Screen>
       <Stack.Screen name="MotorControl" component={MotorControllingScreen} />
+      <Stack.Screen name="ControlScreen" component={ControlScreen} />
      
 
     </Stack.Navigator>

@@ -9,8 +9,9 @@ import { MaterialIcons } from '@expo/vector-icons';
 function ControlScreen() {
     return (
          <View style = {styles.mybg} >
-             
+              
              <View style = {styles.container}>
+           
                  <View style={styles.tile}>
                      <Text style = {styles.myheading}>Switch 1</Text>
                      <SwitchBtn />
@@ -55,7 +56,7 @@ function ControlScreen() {
                  </View>
                
              </View>
-             <View style = {styles.container}>
+             {/* <View style = {styles.container}>
                  <View style={styles.rgbtile}>
                  <Text  style = {styles.myheading}>RGB</Text>
                      <View style = {styles.sldr}><ValSlider  colour = "red"/></View>
@@ -64,7 +65,7 @@ function ControlScreen() {
                  </View>
                 
                
-             </View>
+             </View> */}
             
          </View>
     );

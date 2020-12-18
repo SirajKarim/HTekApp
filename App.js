@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React,{Component} from 'react';
 import { StyleSheet, Text, View, Image,Platform } from 'react-native';
 import BottomTabNavigator from "./navigation/bottomtabnavigator";
@@ -6,6 +7,7 @@ import LoginForm from "./screens/loginscreen"
 // new working
 import RegistrationForm from "./screens/SignUp"
 import { createStackNavigator } from "@react-navigation/stack";
+import LoginSignUp from "./navigation/LoginSignUp.Navigator";
 //end
 
 
@@ -16,6 +18,8 @@ class App extends Component {
     super();
     this.state = {
       isVisible: true,
+      np: false,
+      
     }
   }
 
@@ -29,7 +33,7 @@ class App extends Component {
     var that = this;
     setTimeout(function(){
       that.Hide_Splash_Screen();
-    },4000);
+    },100);
   }
   
   render() { 
@@ -42,18 +46,14 @@ class App extends Component {
       </View> )  
     return (
       <NavigationContainer>
-        {/* new working */}
-        {/* <LoginForm /> */}
-        <Stack.Navigator screenOptions={{headerShown: false
-  }}>
-        <Stack.Screen name="Login" component={LoginForm} />
-        <Stack.Screen name="SignUp" component={RegistrationForm} />
-        </Stack.Navigator>
-        {/* end */}
+        {(this.state.np === true) ?  <LoginSignUp /> :<BottomTabNavigator />  }
+       
+        
         {  
         (this.state.isVisible === true) ? Splash_Screen : null  
         }  
-         {/* <BottomTabNavigator /> */}
+     
+         
       </NavigationContainer>
      );
   }

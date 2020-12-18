@@ -6,6 +6,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons'; 
 import { MaterialIcons } from '@expo/vector-icons';
 import RegistrationForm from '../screens/SignUp';
+import LoginSignUp from "./LoginSignUp.Navigator";
 
 
 const Tab = createBottomTabNavigator();
@@ -16,6 +17,7 @@ const BottomTabNavigator = () => {
     <Tab.Navigator 
     tabBarOptions = {{activeBackgroundColor: '#242945', inactiveBackgroundColor: '#242945' , activeTintColor: 'white'}}
     >
+    
       <Tab.Screen name="Home"
        component={HomeStackNavigator}
        options = {{tabBarIcon: ({ color }) => (
@@ -29,15 +31,19 @@ const BottomTabNavigator = () => {
       tabBarIcon: ({ color }) => (
         <FontAwesome5 name="shopping-bag" color={color} size={26}   />
       ),
-    }}  />
-      <Tab.Screen name="Tools" 
+    }} 
+     />
+
+      {/* Tools tab */}
+      {/* <Tab.Screen name="Tools" 
       component={ToolsStackNavigator}  
       options={{
       tabBarLabel: 'Tools',
       tabBarIcon: ({ color }) => (
         <FontAwesome5 name="tools" color={color} size={26}  />
       ),
-    }}  />
+    }}  /> */}
+
       <Tab.Screen name="Config" 
       component={ConfigStackNavigator}  
       options={{

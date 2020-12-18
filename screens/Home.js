@@ -12,6 +12,7 @@ const Home = ({navigation}) => {
 
 
   return (
+    
     <ScrollView style = {styles.container}>
      <StatusContainer title1 = "Lights" title2 = "Doors" title3 = "Gate"  name1 = "lightbulb-on-outline" name2 = "door-closed" name3 = "door" />
      <TwoTankTileContainer />
@@ -20,35 +21,13 @@ const Home = ({navigation}) => {
      <BigTile title = "Motor Controlling"  />
      <BottomThreeTilesContainer onMotorPressEvent = {onMotorPress} title1 = "Motor    Control" title2 = "Curtin     Opener" title3 = "Generator Kit"  name1 = "water-pump" name2 = "key" name3 = "power-plug" />   
     </ScrollView>
-    // <TouchableOpacity >    
-    //  <Card style = {styles.cardStyle}  onPress={onPress}>
-    //  <Card.Content>
-    //  <MaterialCommunityIcons name="bed-empty" size={32} color="black" />
-    //  </Card.Content>
-    // </Card>
-    // </TouchableOpacity>
+ 
     
  
   );
 };
 
 const styles = StyleSheet.create({
-    // container: {
-    //     flex: 1,
-    //     backgroundColor: '#242945',
-    //     alignItems: 'center',
-    //     justifyContent: 'center',
-      
-       
-    // },
-    // cardStyle: {
-        
-    //     width: '30%',
-    //     backgroundColor:'#d4aa04',
-    //     // flexDirection: 'row',
-    //     margin: '1.6%',
-       
-    // }
     container: {
       flex: 1,
      backgroundColor: '#f2f2ed'
