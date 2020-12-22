@@ -14,16 +14,17 @@ const SwitchBtn = () => {
         onValueChange={toggleSwitch}
         value={isEnabled}
       />
-    </View>
+     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     alignItems: "center",
     justifyContent: "flex-end",
-    marginBottom:'20%'
+    marginBottom:'5%',
+    // marginRight: "50%"
   }
 });
 

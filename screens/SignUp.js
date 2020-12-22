@@ -19,6 +19,17 @@ export default function RegistrationForm({navigation}) {
             .auth()
             .createUserWithEmailAndPassword(email,password)
             .then(() => navigation.navigate('Home'))
+            .then(() => {
+                const uid = firebase.auth().currentUser.uid
+                const data = {
+                    userid: uid,
+                    useremail: email
+                };
+                const userref  = firebase.firestore().collection('users')
+                userref
+                    .doc(uid)
+                    .set(data)
+            })
             .catch(error => console.log(error))
             // .then((response) => {
             //     const uid = response.user.uid

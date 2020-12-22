@@ -12,7 +12,10 @@ import MotorControllingScreen from "../screens/MotorControllingScreen";
 import ControlScreen from "../screens/controlscreen";
 import MyPedometer from "../screens/Pedometer";
 import LoginForm from "../screens/loginscreen";   
+import Account from "../screens/Account";
+// import LoginSignUp from "./LoginSignUp.Navigator";
 
+// import LoginSignUp from "./LoginSignUp.Navigator";
 
 const Stack = createStackNavigator();
 
@@ -103,5 +106,21 @@ const ToolsStackNavigator = () => {
       </Stack.Navigator>
     );
   }
+  const AccountStackNavigator = () => {
+    return (
+      <Stack.Navigator
+      screenOptions={{
+          headerStyle: {
+            backgroundColor: "#242945",
+          },
+          headerTintColor: "white",
+          headerBackTitle: "Back",
+        }}
+      >
+        <Stack.Screen name="Account" component={Account} />
+        <Stack.Screen name="Login" component={LoginForm} />
+      </Stack.Navigator>
+    );
+  }
   
-  export { HomeStackNavigator, ProductsStackNavigator, ToolsStackNavigator,ConfigStackNavigator, CartStackNavigator };
+  export { HomeStackNavigator, ProductsStackNavigator, ToolsStackNavigator,ConfigStackNavigator, CartStackNavigator,AccountStackNavigator };

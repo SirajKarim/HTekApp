@@ -1,74 +1,109 @@
-import React from 'react';
-import { StyleSheet,View,Text } from 'react-native';
-import { Card, Button,Title,Paragraph  } from 'react-native-paper';
+import React,{Component} from 'react';
+import { StyleSheet,View,Text,TouchableHighlight,Modal,Button } from 'react-native';
+import { Card,Title,Paragraph,TextInput,RadioButton   } from 'react-native-paper';
 import SwitchBtn from '../components/switch';
 import ValSlider from '../components/slider'
 import Dimmer from '../components/dimmer';
 import { MaterialIcons } from '@expo/vector-icons';
 
-function ControlScreen() {
-    return (
-         <View style = {styles.mybg} >
-              
-             <View style = {styles.container}>
+class ControlScreen extends Component{
+    state = {
+        modalVisible: false,
+     }
+     toggleModal(visible) {
+        this.setState({ modalVisible: visible });
+     }
+
+     handleAddButton = () =>{
+         console.log("Item added buttoin has been clicked")
+     }
+    render(){
+        return (
+            <View style = {styles.mybg} >
+
+             <Modal animationType = {"slide"} transparent = {false}
+               visible = {this.state.modalVisible}
+               onRequestClose = {() => { console.log("Modal has been closed.") } }>
+               
+               <View style = {styles.modal}>
+               <Text style = {styles.myheading}>BUTTON EDITOR</Text>
+               <View style = {{width: 300, height: 70}}>
+               <TextInput
+                label="Status Off"
+                placeholder = "Light Off"
+                />
+               </View>
+               <View style = {{width: 300, height: 70}}>
+               <TextInput
+                label="Hexadecimal Code"
+                placeholder = "012 235 110 11"
+                />
+               </View>
+               <View style = {{width: 300, height: 70}}>
+               <TextInput
+                label="Status On"
+                placeholder = "Light On"
+                />
+               </View>
            
-                 <View style={styles.tile}>
-                     <Text style = {styles.myheading}>Switch 1</Text>
-                     <SwitchBtn />
-                 </View>
-                 <View style={styles.tile}>
-                 <Text  style = {styles.myheading}>Switch 2</Text>
-                 <SwitchBtn />
-                 </View>
-              
-             </View>
-             <View style = {styles.container}>
-                 <View style={styles.tile}>
-                 <Text  style = {styles.myheading}>Switch 3</Text>
-                 <SwitchBtn />
-                 </View>
-                 <View style={styles.tile}>
-                 <Text  style = {styles.myheading}>Switch 4</Text>
-                 <SwitchBtn />
-                 </View>
-               
-             </View>
-             <View style = {styles.container}>
-                 <View style={styles.tile}>
-                 <Text  style = {styles.myheading}>Switch 5</Text>
-                 <SwitchBtn />
-                 </View>
-                 <View style={styles.tile}>
-                 <Text  style = {styles.myheading}>Socket</Text>
-                 <SwitchBtn />
-                 </View>
-               
-             </View>
-             <View style = {styles.container}>
-                 <View style={styles.tile}>
-                 <Text  style = {styles.myheading}>Dimmer</Text>
-                 <View style = {styles.sldr}><Dimmer /></View>
-                 </View>
-                 <View style={styles.tile}>
-                 <Text  style = {styles.myheading}>Add Button</Text>
-                 <View style = {styles.sldr}><MaterialIcons name="add-box" size={44} color="black" style = {{alignItems: 'center'}}/></View>
+             
+               <View style = {{width: 300, height: 70}}>
+               <TextInput
+                 label="Hexadecimal Code"
+                placeholder = "012 235 110 11"
+                />
+               </View>
+              <View style = {{flexDirection: "row"}}>
+              <TouchableHighlight onPress = {() => {
+                     this.toggleModal(!this.state.modalVisible)}}
+                     style = {{marginLeft: 150}}
+                     >
+                     
+                     <Text style = {{fontWeight: "bold"}}>Close</Text>
+               </TouchableHighlight>
+               <TouchableHighlight onPress = {() => {
+                     this.toggleModal(!this.state.modalVisible)}}
+                     style = {{marginLeft: 50}}
+                     >
+                     
+                     <Text style = {{fontWeight:"bold"}}>Save</Text>
+                </TouchableHighlight>
+              </View>
                  
-                 </View>
+                      {/* <Button title = "Delete" style = {{marginLeft: 300}}/>
+                      
+                      <Button title = "Close" />
+                      <Button title = "Open" /> */}
+                      
+                     
                
+               </View>
+            </Modal>
+               
+                <View style = {styles.container}>
+                   <TouchableHighlight style={styles.tile} onLongPress = {() => {this.toggleModal(true)}}  underlayColor = "white">
+                     
+                    <View >
+                        <Text style = {styles.myheading}>Switch 1</Text>
+                        <SwitchBtn />
+                    </View>
+                   </TouchableHighlight>
+                   <TouchableHighlight style={styles.tile} onLongPress = {() => {this.toggleModal(true)}}  underlayColor = "white">
+                     
+                     <View >
+                         <Text style = {styles.myheading}>Switch 1</Text>
+                         <SwitchBtn />
+                     </View>
+                    </TouchableHighlight>
+                 
+                </View>
+              
+                <Button title = "Add Switch" style = {styles.AddButton} onPress = {this.handleAddButton}/>
              </View>
-             {/* <View style = {styles.container}>
-                 <View style={styles.rgbtile}>
-                 <Text  style = {styles.myheading}>RGB</Text>
-                     <View style = {styles.sldr}><ValSlider  colour = "red"/></View>
-                     <View style = {styles.sldr}><ValSlider  colour = "green"/></View>
-                     <View style = {styles.sldr}><ValSlider colour = "blue"/></View>
-                 </View>
-                
+
                
-             </View> */}
-            
-         </View>
-    );
+       );
+    }  
 }
 
 const styles = StyleSheet.create({
@@ -76,6 +111,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#dfe5f0',
         flex : 1,
     },
+    modal: {
+        flex: 1,
+        alignItems: 'center',
+        backgroundColor: 'white',
+        padding: 100
+     },
     container: {
         flex: 0.185,
         flexWrap: 'wrap',
@@ -112,6 +153,9 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         flexWrap: 'wrap',
         textAlign: 'center'
+    },
+    AddButton: {
+        // marginTop: '995%'
     }
 });
 

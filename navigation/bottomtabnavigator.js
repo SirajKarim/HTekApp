@@ -1,13 +1,14 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import { ConfigStackNavigator, HomeStackNavigator, ProductsStackNavigator,ToolsStackNavigator, CartStackNavigator } from "./StackNavigator";
+import { ConfigStackNavigator, HomeStackNavigator, ProductsStackNavigator,ToolsStackNavigator, CartStackNavigator,AccountStackNavigator } from "./StackNavigator";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons'; 
 import { MaterialIcons } from '@expo/vector-icons';
-import RegistrationForm from '../screens/SignUp';
-import LoginSignUp from "./LoginSignUp.Navigator";
-
+// import RegistrationForm from '../screens/SignUp';
+// import LoginSignUp from "./LoginSignUp.Navigator";
+import Account from "../screens/Account"
+import LoginForm from "../screens/loginscreen"
 
 const Tab = createBottomTabNavigator();
 
@@ -60,14 +61,14 @@ const BottomTabNavigator = () => {
         <FontAwesome5 name="shopping-cart" size={24} color={color} />
       ),
     }}  />
-     {/* <Tab.Screen name="SignUp" 
-      component={RegistrationForm}  
+     <Tab.Screen name="Account" 
+      component={AccountStackNavigator}  
       options={{
-      tabBarLabel: 'Sign Up',
+      tabBarLabel: 'Account',
       tabBarIcon: ({ color }) => (
-        <FontAwesome5 name="signup" size={24} color={color} />
+        <FontAwesome5 name="user" size={24} color={color} />
       ),
-    }}  /> */}
+    }}  />
     </Tab.Navigator>
   );
 };
